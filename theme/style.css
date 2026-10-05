@@ -1,0 +1,779 @@
+/*!
+ * ATE — eXeLearning style
+ * -----------------------
+ * Presentations with the identity of the Área de Tecnología Educativa
+ * (Consejería de Educación, Gobierno de Canarias): Arial, ATE blue titles,
+ * yellow footer rule, logos on the cover and in the footer.
+ * Licensed under the GNU General Public License v3.0.
+ * The logos are institutional marks, not covered by this licence.
+ */
+
+/* Documentos ATE design tokens (DESIGN.md of the documentos-ate skill). */
+:root {
+    --ate-primary: #3F4D88;
+    --ate-primary-light: #DDE1EE;
+    --ate-accent: #E7B012;
+    --ate-text: #1A1A1A;
+    --ate-muted: #595959;
+    --ate-border: #BFBFBF;
+    --ate-font: Arial, "Liberation Sans", Helvetica, sans-serif;
+}
+
+/* ---------- Content: export and editor ---------- */
+
+.exe-content {
+    --bs-primary: #3F4D88;
+    --bs-primary-rgb: 63, 77, 136;
+    --bs-link-color: #3F4D88;
+    --bs-link-color-rgb: 63, 77, 136;
+    --bs-link-hover-color: #2C3660;
+    --bs-link-hover-color-rgb: 44, 54, 96;
+    --bs-body-font-family: var(--ate-font);
+    --bs-body-color: #1A1A1A;
+    --bs-border-color: #BFBFBF;
+    --exe-icon-color: #3F4D88;
+    --exe-fx-focus-color: #3F4D88;
+    color: var(--ate-text);
+    font-family: var(--ate-font);
+    line-height: 1.4;
+}
+
+body.exe-export {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: var(--ate-text);
+    font-family: var(--ate-font);
+}
+
+.exe-content a {
+    color: var(--ate-primary);
+    text-decoration: underline;
+    text-underline-offset: .15em;
+}
+
+.exe-content a:hover,
+.exe-content a:focus {
+    color: #2C3660;
+}
+
+.exe-content :focus-visible,
+.ate-control:focus-visible,
+.ate-menu :focus-visible {
+    outline: 2px solid var(--ate-primary);
+    outline-offset: 2px;
+}
+
+.exe-content h1,
+.exe-content h2,
+.exe-content h3,
+.exe-content h4 {
+    color: var(--ate-primary);
+    font-family: var(--ate-font);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.exe-content .page-title {
+    margin: 0 0 .75em;
+    color: var(--ate-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.exe-content .package-title {
+    margin: 0 0 .5em;
+    color: var(--ate-muted);
+    font-size: 1rem;
+}
+
+.exe-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.exe-content figcaption {
+    color: var(--ate-muted) !important;
+    font-style: normal !important;
+    font-size: .9em !important;
+}
+
+/* iDevices: a heading and its content, no boxes. */
+.exe-content .box {
+    position: relative;
+    margin: 0 0 1.5em;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+.exe-content .box-head {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    min-height: 0;
+    margin-bottom: .5em;
+    padding-right: 2.5rem;
+    border: 0;
+}
+
+.exe-content .box-title {
+    margin: 0;
+    padding: 0;
+    color: var(--ate-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.exe-content .box-icon {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.exe-content .box-icon img,
+.exe-content .box-icon .exe-material-icon {
+    display: block;
+    width: 1.6em;
+    height: 1.6em;
+    margin: 0;
+}
+
+.exe-content .box-icon .exe-material-icon {
+    background-color: var(--exe-icon-color);
+    -webkit-mask: var(--exe-material-icon-url) center / contain no-repeat;
+    mask: var(--exe-material-icon-url) center / contain no-repeat;
+}
+
+.exe-content .box-content {
+    padding: 0;
+    border: 0;
+    background: none;
+    overflow: auto;
+}
+
+.exe-content .box-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3 5.5 5 5 5-5' fill='none' stroke='%23595959' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.exe-content .box.minimized .box-toggle {
+    transform: rotate(-90deg);
+}
+
+.exe-content .box-toggle span,
+#packageLicense .license-label,
+.exe-content .sr-av {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+}
+
+/* Tables: grey hairlines and a light blue header with blue bold text. */
+.exe-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.exe-content table th,
+.exe-content table td {
+    padding: .4em .6em;
+    border: 1px solid var(--ate-border);
+    text-align: start;
+    vertical-align: top;
+}
+
+.exe-content table th,
+.exe-content table thead td {
+    background: var(--ate-primary-light);
+    color: var(--ate-primary);
+    font-weight: 700;
+}
+
+.exe-content table caption {
+    caption-side: top;
+    color: var(--ate-muted);
+    font-style: normal;
+}
+
+/* Literal quotes: indented, grey italics and a blue rule. */
+.exe-content blockquote {
+    margin: 1em 0 1em 1em;
+    padding: .25em 0 .25em 1em;
+    border-left: 3px solid var(--ate-primary);
+    color: var(--ate-muted);
+    font-style: italic;
+}
+
+/* Buttons */
+.exe-content .btn-primary {
+    --bs-btn-bg: #3F4D88;
+    --bs-btn-border-color: #3F4D88;
+    --bs-btn-hover-bg: #2C3660;
+    --bs-btn-hover-border-color: #2C3660;
+    --bs-btn-active-bg: #2C3660;
+    --bs-btn-active-border-color: #2C3660;
+}
+
+.exe-content .iDevice_buttons input,
+.exe-content .iDevice_buttons button,
+.exe-content .exe-sortableList input[type="button"],
+.exe-content .exe-download-package-link a {
+    display: inline-block;
+    padding: .35em .9em;
+    border: 1px solid var(--ate-primary);
+    border-radius: 3px;
+    background: var(--ate-primary);
+    color: #fff;
+    font: 400 1em/1.4 var(--ate-font);
+    text-decoration: none;
+}
+
+.exe-content .iDevice_buttons input:hover,
+.exe-content .iDevice_buttons button:hover,
+.exe-content .exe-sortableList input[type="button"]:hover,
+.exe-content .exe-download-package-link a:hover,
+.exe-content .exe-download-package-link a:focus {
+    border-color: #2C3660;
+    background-color: #2C3660 !important;
+    color: #fff !important;
+}
+
+.exe-content .exe-download-package-link {
+    margin-top: 1.5em !important;
+}
+
+.exe-content input[type="radio"],
+.exe-content input[type="checkbox"] {
+    accent-color: var(--ate-primary);
+}
+
+.exe-content .TOFP-QuestionDiv {
+    padding: .6em .9em;
+    border: 1px solid var(--ate-border);
+    border-radius: 3px;
+    background: #fff;
+}
+
+.exe-content .exe-sortableList-options li {
+    border: 1px solid var(--ate-border);
+    border-radius: 3px;
+    box-shadow: none;
+    color: var(--ate-text);
+}
+
+/* License: Creative Commons badges */
+#packageLicense {
+    color: var(--ate-muted);
+    font-size: .9rem;
+}
+
+#packageLicense p {
+    margin: 0;
+}
+
+#packageLicense.cc {
+    min-height: 31px;
+    padding-left: 98px;
+    display: flex;
+    align-items: center;
+    background: url(img/licenses.gif) no-repeat 0 0;
+}
+
+#packageLicense.cc-by-sa { background-position: 0 -100px; }
+#packageLicense.cc-by-nd { background-position: 0 -200px; }
+#packageLicense.cc-by-nc { background-position: 0 -300px; }
+#packageLicense.cc-by-nc-sa { background-position: 0 -400px; }
+#packageLicense.cc-by-nc-nd { background-position: 0 -500px; }
+#packageLicense.cc-0 { background-position: 0 -600px; }
+
+#packageLicense.propietary {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    height: 0;
+}
+
+/* ---------- Document: no JavaScript, narrow screens and print ---------- */
+
+.exe-web-site .exe-content {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 2rem;
+}
+
+.exe-web-site #siteNav ul {
+    margin: 0;
+    padding: 0 0 0 1.25rem;
+    list-style: none;
+}
+
+.exe-web-site #siteNav > ul {
+    padding: 0;
+}
+
+.exe-web-site #siteNav a {
+    display: block;
+    padding: .3rem .5rem;
+    color: var(--ate-text);
+    text-decoration: none;
+}
+
+.exe-web-site #siteNav a.active {
+    background: var(--ate-primary-light);
+    color: var(--ate-primary);
+    font-weight: 700;
+}
+
+.exe-web-site #siteNav .other-section {
+    display: block;
+}
+
+.exe-web-site main.page {
+    margin: 1.5rem 0;
+}
+
+.exe-web-site .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+}
+
+.exe-web-site .nav-buttons span.nav-button {
+    visibility: hidden;
+}
+
+.exe-web-site #siteFooter {
+    padding-top: .75rem;
+    border-top: 2px solid var(--ate-accent);
+}
+
+.exe-web-site .page-counter {
+    float: right;
+    margin: 0;
+    color: var(--ate-muted);
+    font-size: .9rem;
+}
+
+#made-with-eXe a {
+    overflow: hidden;
+}
+
+/* Built by style.js: logos and footer in the document reading. */
+/* Marks at the same height (Gobierno de Canarias manual 4.4 and 4.7):
+   the Gobierno de Canarias on the left, the ATE on the right. */
+.ate-slide-header,
+.ate-cover-marks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ate-slide-header img,
+.ate-cover-marks img {
+    width: auto;
+    height: 2.5rem;
+}
+
+.ate-cover-marks {
+    justify-content: center;
+    gap: 2rem;
+}
+
+.ate-cover-marks img {
+    height: 4rem;
+}
+
+.ate-cover-title {
+    margin: 0 0 .5em;
+    color: var(--ate-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.ate-cover .main-header,
+.ate-cover .box-head {
+    display: none;
+}
+
+.ate-js .exe-web-site .package-header,
+.ate-js .exe-web-site .page-counter,
+.ate-js .exe-web-site #exe-client-search,
+.ate-js .exe-web-site #teacher-mode-toggler-wrapper {
+    display: none;
+}
+
+.ate-slide-footer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: 2rem;
+    padding-top: .5rem;
+    border-top: 2px solid var(--ate-accent);
+    color: var(--ate-muted);
+    font-size: .8rem;
+}
+
+.ate-footer-text {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ate-footer-number {
+    white-space: nowrap;
+}
+
+/* Previous, index and next */
+.ate-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    font-family: var(--ate-font);
+}
+
+.ate-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.25rem;
+    padding: 0 .75rem;
+    border: 1px solid var(--ate-border);
+    border-radius: 3px;
+    background: #fff;
+    color: var(--ate-primary);
+    font: 700 .9rem var(--ate-font);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.ate-control:hover,
+button.ate-control:hover {
+    border-color: var(--ate-primary);
+    background: var(--ate-primary-light);
+}
+
+span.ate-control {
+    color: var(--ate-border);
+    cursor: default;
+}
+
+.ate-control.nav-button-left::before {
+    content: "←\00a0";
+}
+
+.ate-control.nav-button-right::after {
+    content: "\00a0→";
+}
+
+/* Index of slides: a native modal dialog */
+.ate-menu {
+    width: min(30rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    padding: 1.5rem;
+    border: 1px solid var(--ate-border);
+    border-top: 4px solid var(--ate-accent);
+    border-radius: 3px;
+    color: var(--ate-text);
+    font-family: var(--ate-font);
+}
+
+.ate-menu::backdrop {
+    background: rgba(26, 26, 26, .55);
+}
+
+.ate-menu-title {
+    margin: 0 0 1rem;
+    color: var(--ate-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.ate-menu a {
+    color: var(--ate-primary);
+}
+
+.ate-menu-close {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ate-muted);
+    font: 1.5rem/1 var(--ate-font);
+    cursor: pointer;
+}
+
+.ate-menu #siteNav {
+    margin: 0;
+    padding: 0;
+}
+
+.ate-menu #siteNav ul {
+    margin: 0;
+    padding: 0 0 0 1.25rem;
+    list-style: none;
+}
+
+.ate-menu #siteNav > ul {
+    padding: 0;
+}
+
+.ate-menu #siteNav a {
+    display: block;
+    padding: .35rem .5rem;
+    border-radius: 3px;
+    color: var(--ate-text);
+    text-decoration: none;
+}
+
+.ate-menu #siteNav a:hover {
+    background: #f2f2f2;
+}
+
+.ate-menu #siteNav a.active {
+    background: var(--ate-primary-light);
+    color: var(--ate-primary);
+    font-weight: 700;
+}
+
+.ate-menu #siteNav .other-section {
+    display: block;
+}
+
+.ate-menu-help {
+    margin: 1rem 0;
+    color: var(--ate-muted);
+    font-size: .9rem;
+}
+
+.ate-menu #siteFooter {
+    margin: 0;
+    padding: .75rem 0 0;
+    border-top: 2px solid var(--ate-accent);
+}
+
+.ate-menu #made-with-eXe {
+    position: static;
+    margin: .75rem 0 0;
+}
+
+.ate-menu #made-with-eXe a {
+    width: auto;
+    height: auto;
+    padding-left: 28px;
+    background-position: 0 50%;
+    box-shadow: none;
+    color: var(--ate-primary);
+    font: .9rem/24px var(--ate-font);
+    opacity: 1;
+}
+
+.ate-menu #made-with-eXe span {
+    padding: 0;
+}
+
+.exe-open-exelearning {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .5rem;
+    color: var(--ate-primary);
+    font-size: .9rem;
+}
+
+.exe-open-logo {
+    width: 20px;
+    height: 20px;
+}
+
+/* ---------- Slides: wide screens with JavaScript ---------- */
+
+@media screen and (min-width: 768px) and (min-aspect-ratio: 1/1) {
+    .ate-js body.exe-web-site {
+        height: 100vh;
+        overflow: hidden;
+        background: #e8e8ea;
+    }
+
+    .ate-js .exe-web-site .exe-content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: none;
+        height: calc(100vh - 3.75rem);
+        padding: 1rem 1rem 0;
+        background: none;
+    }
+
+    .ate-js .exe-web-site main.ate-slide {
+        container-type: inline-size;
+        display: flex;
+        flex-direction: column;
+        width: min(100%, calc((100vh - 4.75rem) * 16 / 9));
+        aspect-ratio: 16 / 9;
+        margin: 0;
+        /* Content guide at 12 mm of a 190.5 mm high slide (manual 4.7.04). */
+        padding: 0 3.54cqw;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #d2d2d6;
+        font-size: 1.6cqw;
+    }
+
+    /* Top band: 6 mm, 12 mm high marks, 6 mm; the right-hand mark 6 mm from the edge. */
+    .ate-slide .ate-slide-header {
+        flex: 0 0 auto;
+        margin: 0 -1.77cqw 0 0;
+        padding: 1.77cqw 0;
+    }
+
+    .ate-slide .ate-slide-header img {
+        height: 3.54cqw;
+    }
+
+    .ate-slide .main-header {
+        flex: 0 0 auto;
+        padding-top: 1.5cqw;
+    }
+
+    .ate-slide .page-title {
+        margin: 0 0 1.6cqw;
+        font-size: 3.1cqw;
+    }
+
+    .ate-slide .page-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        padding-right: 1cqw;
+        overflow: auto;
+        scrollbar-width: thin;
+    }
+
+    .ate-slide .box {
+        margin-bottom: 2cqw;
+    }
+
+    .ate-slide .box-title {
+        font-size: 2cqw;
+    }
+
+    .ate-slide .box-head {
+        margin-bottom: .8cqw;
+        padding-right: 0;
+    }
+
+    .ate-slide .box-toggle {
+        display: none;
+    }
+
+    .ate-slide .exe-text-activity p,
+    .ate-slide .exe-text-activity li {
+        margin: 0 0 .8em;
+    }
+
+    /* Illustration beside the text, as on a slide. */
+    .ate-slide .exe-text-activity figure {
+        float: right;
+        width: 38%;
+        margin: 0 0 1.5cqw 3cqw !important;
+    }
+
+    .ate-slide .exe-text-activity figure img {
+        max-width: 100% !important;
+    }
+
+    .ate-slide figcaption {
+        font-size: 1.1cqw !important;
+    }
+
+    .ate-slide .ate-slide-footer {
+        flex: 0 0 auto;
+        gap: 1.2cqw;
+        margin: 1.2cqw 0 0;
+        padding: .8cqw 0 1.4cqw;
+        border-top-width: max(2px, .2cqw);
+        font-size: 1cqw;
+    }
+
+    /* Cover (manual 4.7.03 and 4.7.06): both marks centred between Y/4 and Y/2,
+       Y/8 apart; the title and subtitle below, centred. */
+    .ate-slide .ate-cover-marks {
+        flex: 0 0 auto;
+        gap: 7.03cqw;
+        height: 14.06cqw;
+        margin: 14.06cqw 0 0;
+    }
+
+    .ate-slide .ate-cover-marks img {
+        height: 11.5cqw;
+    }
+
+    .ate-slide .ate-cover-title {
+        margin: 3cqw 0 1.5cqw;
+        font-size: 4.2cqw;
+        text-align: center;
+    }
+
+    .ate-cover .page-content {
+        color: var(--ate-muted);
+        font-size: 1.7cqw;
+        text-align: center;
+    }
+
+    .ate-js .exe-web-site .ate-controls {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 3.75rem;
+        padding: 0;
+    }
+
+    .ate-js .exe-web-site #siteNav {
+        max-width: none;
+    }
+}
+
+@media print {
+    .ate-controls,
+    .ate-menu,
+    .exe-content .box-toggle,
+    .exe-web-site .nav-buttons,
+    .exe-web-site #siteNav {
+        display: none !important;
+    }
+
+    .exe-web-site .exe-content {
+        max-width: none;
+        padding: 0;
+    }
+
+    #packageLicense.cc {
+        padding-left: 0;
+        background: none;
+    }
+
+    @page {
+        margin: 2.5cm;
+    }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+  <name>ate</name>
+  <title>ATE</title>
+  <version>1.0.0</version>
+  <compatibility>4.0.5</compatibility>
+  <author>Área de Tecnología Educativa · Gobierno de Canarias</author>
+  <license>GNU General Public License v3.0</license>
+  <license-url>https://www.gnu.org/licenses/gpl-3.0.html</license-url>
+  <description>Presentaciones con la imagen del Área de Tecnología Educativa: cada página del recurso es una diapositiva 16:9 con la banda superior del ATE y del Gobierno de Canarias, el título en azul y el pie con filete amarillo, nombre del área, título y número. La portada centra la Marca del Gobierno de Canarias y el logotipo del ATE. La colocación y el tamaño de los logotipos siguen el Manual de Identidad Corporativa del Gobierno de Canarias (apartados 4.4 y 4.7). Se pasa de diapositiva con ← y →, Re Pág y Av Pág, la barra espaciadora o los botones; el índice abre la lista de diapositivas y la licencia. En pantallas estrechas, sin JavaScript o al imprimir, se lee como un documento. Arial, sobrio y sin adornos, según la guía de estilo de los documentos del ATE.
+
+Los logotipos del Gobierno de Canarias y del Área de Tecnología Educativa son marcas institucionales: no están cubiertos por la licencia GPL de este estilo y sólo deben usarse en materiales del ATE, sin deformarlos ni recolorearlos. Iconos de iDevices de Google (Material Symbols, https://fonts.google.com/icons), tomados del estilo Zen de eXeLearning, bajo la Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0); el texto completo está en icons/LICENSE.txt.
+
+Creative Commons license badges (img/licenses.gif) are trademarks of Creative Commons (https://creativecommons.org) and are used under their trademark policy (https://creativecommons.org/policies/). They are not covered by this style's license.</description>
+  <downloadable>1</downloadable>
+</theme>
