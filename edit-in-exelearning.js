@@ -3,7 +3,7 @@
    Deferred, so this listener runs after the style's own DOMContentLoaded init builds the index. */
 document.addEventListener('DOMContentLoaded', function () {
     var menu = document.querySelector('.ate-menu');
-    if (!menu || window.self !== window.top || document.querySelector('.exe-open-exelearning')) return;
+    if (!menu || document.querySelector('.exe-open-exelearning')) return;
     var style = document.createElement('style');
     style.textContent = '.exe-open-exelearning { display: inline-flex; align-items: center; gap: .4rem; margin-top: .5rem; color: var(--ate-primary); font-size: .9rem; }'
         + '.exe-open-exelearning svg { width: 20px; height: 20px; }';
