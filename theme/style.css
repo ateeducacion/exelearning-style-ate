@@ -592,20 +592,6 @@ span.ate-control {
     padding: 0;
 }
 
-.exe-open-exelearning {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    margin-top: .5rem;
-    color: var(--ate-primary);
-    font-size: .9rem;
-}
-
-.exe-open-logo {
-    width: 20px;
-    height: 20px;
-}
-
 /* ---------- Slides: wide screens with JavaScript ---------- */
 
 @media screen and (min-width: 768px) and (min-aspect-ratio: 1/1) {

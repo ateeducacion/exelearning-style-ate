@@ -107,7 +107,6 @@
         dialog.append(close, heading, nav, help);
         if (license) dialog.append(license);
         if (made) dialog.append(made);
-        dialog.append(openLink());
 
         var index = element('button', 'ate-control ate-index', 'Índice');
         index.type = 'button';
@@ -129,19 +128,6 @@
             bar.append(index);
         }
         body.append(bar, dialog);
-    }
-
-    // Shared by the style collection: open the example in eXeLearning.
-    function openLink() {
-        var link = element('a', 'exe-open-exelearning', 'Edit with eXeLearning');
-        link.href = 'https://static.exelearning.dev/?url=https://github-proxy.exelearning.dev/?repo=ateeducacion/exelearning-style-ate&branch=main';
-        link.target = '_blank';
-        link.rel = 'noopener';
-        var logo = element('img', 'exe-open-logo');
-        logo.src = asset('icons/exe-logo.svg');
-        logo.alt = '';
-        link.prepend(logo);
-        return link;
     }
 
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
