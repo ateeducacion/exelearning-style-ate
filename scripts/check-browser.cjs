@@ -90,11 +90,20 @@ const base = process.argv[2] || 'http://localhost:1314/';
     await page.locator('.TOFP-QuestionDiv').first().locator('input').first().focus();
     await page.keyboard.press('ArrowRight');
     assert.match(page.url(), /verdadero/, 'Arrow keys in a question do not change slide');
+    assert.equal(await page.getByRole('radio', { name: 'Verdadero', exact: true }).count(), 4, 'True labels are in Spanish');
+    assert.equal(await page.getByRole('radio', { name: 'Falso', exact: true }).count(), 4, 'False labels are in Spanish');
+    assert.equal(await page.locator('[id^="tofPCheckTest-"]').innerText(), 'Comprobar');
     for (const [index, value] of ['1', '0', '1', '0'].entries()) {
       await page.locator('.TOFP-QuestionDiv').nth(index).locator(`input[value="${value}"]`).check();
     }
     await page.locator('[id^="tofPCheckTest-"]').click();
-    assert.equal(await page.locator('.TOFP-SolutionMessage').filter({ hasText: /Correct/i }).count(), 4, 'True/false quiz marks all answers');
+    assert.deepEqual(await page.locator('.TOFP-SolutionMessage').allTextContents(), Array(4).fill('Correcto'), 'Correct answers get Spanish feedback');
+    assert.equal(await page.locator('.TOFP-Message').innerText(), 'Tu puntuación: 10.00');
+    await page.reload(); await ready();
+    await page.getByRole('radio', { name: 'Falso', exact: true }).first().check();
+    await page.getByRole('button', { name: 'Comprobar', exact: true }).click();
+    assert.deepEqual(await page.locator('.TOFP-SolutionMessage').allTextContents(), Array(4).fill('Incorrecto'), 'Wrong and unanswered questions get Spanish feedback');
+    assert.equal(await page.locator('.TOFP-Message').innerText(), 'Tu puntuación: 0.00');
 
     await page.goto(urls.find(url => url.includes('ordena'))); await ready();
     const options = await page.locator('.scrambled-list').evaluate(node => JSON.parse(node.dataset.ideviceJsonData).options);
